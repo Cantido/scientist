@@ -53,14 +53,17 @@ defmodule ExperimentTest do
   end
 
   test "the exception stacktrace is unchanged in the control" do
-    assert_raise(RuntimeError, fn ->
-      Experiment.new()
-      |> Experiment.add_control(fn -> raise "control" end)
-      |> Experiment.add_candidate(fn -> :candidate end)
-      |> Experiment.run()
-    end)
+    try do
+        Experiment.new()
+        |> Experiment.add_control(fn -> raise "control" end)
+        |> Experiment.add_candidate(fn -> :candidate end)
+        |> Experiment.run()
 
-    assert match?([{ExperimentTest, _, _, _} | _], System.stacktrace())
+        flunk "Experiment should have raised"
+    rescue
+      _ ->
+        assert match?([{ExperimentTest, _, _, _} | _], __STACKTRACE__)
+    end
   end
 
   test "it passes through thrown exceptions in the control" do

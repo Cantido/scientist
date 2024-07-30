@@ -237,7 +237,7 @@ defmodule Scientist.Experiment do
   """
   def should_run?(experiment = %Scientist.Experiment{candidates: obs, module: module}) do
     guarded experiment, :enabled do
-      Enum.count(obs) > 1 and module.enabled? and run_if_allows?(experiment)
+      Enum.count(obs) > 1 and module.enabled?() and run_if_allows?(experiment)
     end
   end
 
