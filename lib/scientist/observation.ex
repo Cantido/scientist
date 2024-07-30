@@ -48,10 +48,10 @@ defmodule Scientist.Observation do
       %__MODULE__{observation | value: value, duration: duration, cleaned_value: cleaned}
     rescue
       except ->
-        %__MODULE__{observation | exception: {:raised, except}, stacktrace: System.stacktrace()}
+        %__MODULE__{observation | exception: {:raised, except}, stacktrace: __STACKTRACE__}
     catch
       except ->
-        %__MODULE__{observation | exception: {:thrown, except}, stacktrace: System.stacktrace()}
+        %__MODULE__{observation | exception: {:thrown, except}, stacktrace: __STACKTRACE__}
     end
   end
 

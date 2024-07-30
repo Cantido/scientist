@@ -5,7 +5,7 @@ defmodule Scientist.Mixfile do
     [
       app: :scientist,
       version: "0.2.1",
-      elixir: "~> 1.2",
+      elixir: "~> 1.13",
       deps: deps(),
       package: package(),
       name: "Scientist",
@@ -13,12 +13,9 @@ defmodule Scientist.Mixfile do
       description: """
       A library for carefully refactoring critical paths in your elixir application.
       """
-    ] ++ test()
+    ]
   end
 
-  defp test do
-    [test_coverage: [tool: ExCoveralls], preferred_cli_env: [coveralls: :test]]
-  end
 
   def application do
     [applications: [:logger]]
@@ -26,8 +23,7 @@ defmodule Scientist.Mixfile do
 
   defp deps do
     [
-      {:ex_doc, "~> 0.22.1", only: :dev, runtime: false},
-      {:excoveralls, "~> 0.12.3", only: :test}
+      {:ex_doc, "~> 0.34.2", only: :dev, runtime: false}
     ]
   end
 
