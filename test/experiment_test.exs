@@ -54,12 +54,12 @@ defmodule ExperimentTest do
 
   test "the exception stacktrace is unchanged in the control" do
     try do
-        Experiment.new()
-        |> Experiment.add_control(fn -> raise "control" end)
-        |> Experiment.add_candidate(fn -> :candidate end)
-        |> Experiment.run()
+      Experiment.new()
+      |> Experiment.add_control(fn -> raise "control" end)
+      |> Experiment.add_candidate(fn -> :candidate end)
+      |> Experiment.run()
 
-        flunk "Experiment should have raised"
+      flunk("Experiment should have raised")
     rescue
       _ ->
         assert match?([{ExperimentTest, _, _, _} | _], __STACKTRACE__)
