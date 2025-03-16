@@ -34,6 +34,19 @@ defmodule Scientist.Experiment do
   * `:run_if`
   """
 
+  @type t() :: %__MODULE__{
+          name: String.t(),
+          candidates: map(),
+          context: map(),
+          run_if_fn: function() | nil,
+          before_run: function() | nil,
+          result: any(),
+          clean: any(),
+          comparator: function(),
+          raise_on_mismatches: boolean(),
+          module: module()
+        }
+
   defstruct name: "#{__MODULE__}",
             candidates: %{},
             context: %{},
@@ -52,7 +65,7 @@ defmodule Scientist.Experiment do
   If a falsey value is returned, the candidate blocks of the experiment
   will be ignored, only running the control.
   """
-  @callback enabled?() :: Boolean | nil
+  @callback enabled?() :: boolean() | nil
 
   @doc """
   Publish the result of an experiment.
@@ -326,6 +339,7 @@ defmodule Scientist.Experiment do
   @doc """
   Adds a function to the experiment that should only execute when the experiment is run.
   """
+  @spec set_before_run(t(), function()) :: t()
   def set_before_run(exp, before_run) do
     put_in(exp.before_run, before_run)
   end

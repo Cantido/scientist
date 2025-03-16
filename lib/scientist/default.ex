@@ -10,6 +10,9 @@ defmodule Scientist.Default do
   """
   use Scientist.Experiment
 
+  @impl Scientist.Experiment
   def enabled?, do: true
+
+  @impl Scientist.Experiment
   def publish(_), do: :ok
 end

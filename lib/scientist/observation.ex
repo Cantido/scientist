@@ -12,6 +12,17 @@ defmodule Scientist.Observation do
 
   import Scientist.Experiment, only: [guarded: 3]
 
+  @type t() :: %__MODULE__{
+          name: String.t(),
+          experiment: Scientist.Experiment.t(),
+          timestamp: integer(),
+          value: any(),
+          cleaned_value: any(),
+          exception: any(),
+          stacktrace: any(),
+          duration: integer()
+        }
+
   defstruct name: "",
             experiment: nil,
             timestamp: nil,

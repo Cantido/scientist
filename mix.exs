@@ -17,12 +17,18 @@ defmodule Scientist.Mixfile do
   end
 
   def application do
-    [applications: [:logger]]
+    [extra_applications: [:logger]]
   end
 
   defp deps do
     [
-      {:ex_doc, "~> 0.37.3", only: :dev, runtime: false}
+      {:ex_check, "~> 0.16.0", only: [:dev], runtime: false},
+      {:credo, "~> 1.7", only: [:dev], runtime: false},
+      {:dialyxir, "~> 1.4", only: [:dev], runtime: false},
+      {:doctor, "~> 0.22.0", only: [:dev], runtime: false},
+      {:ex_doc, "~> 0.37.3", only: [:dev], runtime: false},
+      {:sobelow, "~> 0.13.0", only: [:dev], runtime: false},
+      {:mix_audit, "~> 2.1", only: [:dev], runtime: false}
     ]
   end
 

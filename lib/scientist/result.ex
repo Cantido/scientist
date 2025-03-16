@@ -6,6 +6,15 @@ defmodule Scientist.Result do
   experiment, as well as information about whether observations were mismatched or
   ignored.
   """
+
+  @type t() :: %__MODULE__{
+          experiment: Scientist.Experiment.t(),
+          candidates: list(),
+          control: any(),
+          mismatched: list(),
+          ignored: list()
+        }
+
   defstruct experiment: nil,
             candidates: [],
             control: nil,
