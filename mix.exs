@@ -9,13 +9,12 @@ defmodule Scientist.Mixfile do
       deps: deps(),
       package: package(),
       name: "Scientist",
-      source_url: "https://github.com/cwbriones/scientist",
+      source_url: "https://github.com/Cantido/scientist",
       description: """
       A library for carefully refactoring critical paths in your elixir application.
       """
     ]
   end
-
 
   def application do
     [applications: [:logger]]
@@ -29,9 +28,9 @@ defmodule Scientist.Mixfile do
 
   defp package do
     [
-      maintainers: ["Christian Briones"],
+      maintainers: ["Rosa Richter"],
       licenses: ["MIT"],
-      links: %{github: "https://github.com/cwbriones/scientist"},
+      links: %{github: "https://github.com/Cantido/scientist"},
       files: ~w(lib LICENSE mix.exs README.md)
     ]
   end

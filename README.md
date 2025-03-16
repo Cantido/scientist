@@ -1,7 +1,6 @@
 # Scientist
 
-[![Build Status](https://travis-ci.org/cwbriones/scientist.svg?branch=master)](https://travis-ci.org/cwbriones/scientist)
-[![Coverage Status](https://coveralls.io/repos/github/cwbriones/scientist/badge.svg?branch=master)](https://coveralls.io/github/cwbriones/scientist?branch=master)
+[![Elixir build](https://github.com/Cantido/scientist/actions/workflows/elixir.yml/badge.svg)](https://github.com/Cantido/scientist/actions/workflows/elixir.yml)
 
 A library for carefully refactoring critical paths in your elixir appplication.
 
@@ -310,14 +309,13 @@ compare blocks that are always true: `compare(_, _) do: true`
 
 # Installation
 
-Scientist is available on [Hex](https://hex.pm/packages/scientist). It can be installed by adding it to your
-list of dependencies in `mix.exs`:
+Scientist can be installed by adding it to your list of dependencies in `mix.exs`:
 ```elixir
   def deps do
-    [{:scientist, "~> 0.2.1"}]
+    [{:scientist, github: "Cantido/scientist"}]
   end
 ```
 
 # License
 
-Scientist is licensed under the MIT License. See [LICENSE](https://github.com/cwbriones/scientist/blob/master/LICENSE) for the full text.
+Scientist is licensed under the MIT License. See [LICENSE](https://github.com/Cantido/scientist/blob/master/LICENSE) for the full text.
